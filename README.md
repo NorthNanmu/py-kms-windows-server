@@ -50,38 +50,3 @@ Connecting to 192.168.1.1:1688 ... successful
 ### 大功告成!
 
 *  **如果你不在windows server环境下，你可以尝试`py-kms-start.bat`和`py-kms-start(hidden).bat`来做临时激活**
-~~### .bat方法
-新建一个.bat文件，命名`py-kms-start(hidden).bat`，用`notepad++`打开(类似软件均可)
-填入以下信息
-```
-@echo off
-if "%1" == "h" goto begin
-mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
-:begin
-REM
-python E:\kms\py-kms\server.py 0.0.0.0 1688
-```
-其中的`E:\kms\py-kms\server.py`可以替换为你自己的文件路径
-
-* 将`py-kms-start(hidden).bat`的<u>**快捷方式**</u>添加进`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`即可
-
-### vbs方法
-<span id="vbs1">1.</span>新建一个.bat文件，命名为`py-kms-start.bat`，用`notepad++`打开(类似软件均可)
-填入以下信息
-```
-@echo off
-python E:\kms\py-kms\server.py 0.0.0.0 1688
-```
-
-其中的`E:\kms\py-kms\server.py`可以替换为你自己的文件路径
-2. 新建一个.vbs文件，命名为`kms-start.vbs`,用`notepad++`打开(类似软件均可)
-填入以下信息
-```
-dim objShell   
-set objShell=wscript.createObject("WScript.Shell")   
-iReturnCode=objShell.Run("E:\kms\py-kms-start.bat",0,TRUE)
-```
-其中的`E:\kms\py-kms-start.bat`可以替换为你自己的文件路径
-**但是一定要确保该路径指向刚刚[步骤1](#vbs1)的`py-kms-start.bat`文件**
-
-* 将`py-kms-start(hidden).bat`的<u>**快捷方式**</u>添加进`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`即可~~

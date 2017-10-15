@@ -1,5 +1,5 @@
 # 如何在Windows Server上搭建py-kms自助激活系统
-[TOC]
+[toc]
 ## 简介
 py-kms是基于python语言的kms激活软件，从`VLMCSD`衍生而来，支持Windows Vista / 7 / 8 / 8.1 / 10 / Server 2008 / Server 2008 R2 / Server 2012 / Server 2012 R2 / Server 2016.
 Office 2010 / Office 2013 / Office 2016.
@@ -30,6 +30,7 @@ slmgr.vbs -dlv
 在组策略中添加脚本
 #### 步骤
 * `Win`+`X`打开运行，输入`gpedit.msc`,选中`计算机配置`——`Winddows配置`——`脚本（启动）`，将`start.vbs`添加进去即可
+* **注意，请提前修改`start.vbs`内的`py-kms`所在目录**
 * 保险起见，我决定在用户配置中也添加一个`start.vbs`，作为备份，步骤和上面相同
 ## 测试
 参考：[http://blog.csdn.net/gsls200808/article/details/50326201](http://blog.csdn.net/gsls200808/article/details/50326201)
@@ -40,13 +41,15 @@ slmgr.vbs -dlv
 `vlmcs.exe -v -l 3 192.168.1.1`
 -v输出详细信息
 -l 3表示发送Windows Server 2008 Datacenter的激活请求，具体版本对应列表可以通过vlmcs.exe -x查看
-192.168.1.1表示KMS服务器的域名
+`192.168.1.1`表示KMS服务器的域名
 
 输出出现
 ```shell
 Connecting to 192.168.1.1:1688 ... successful
 ```
 ### 大功告成!
+
+*  **如果你不在windows server环境下，你可以尝试`py-kms-start.bat`和`py-kms-start(hidden).bat`来做临时激活**
 ~~### .bat方法
 新建一个.bat文件，命名`py-kms-start(hidden).bat`，用`notepad++`打开(类似软件均可)
 填入以下信息

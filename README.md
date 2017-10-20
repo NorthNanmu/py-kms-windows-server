@@ -29,7 +29,7 @@ slmgr.vbs -dlv
 ### 使用gpedit.msc创建启动脚本
 在组策略中添加脚本
 #### 步骤
-* `Win`+`X`打开运行，输入`gpedit.msc`,选中`计算机配置`——`Winddows配置`——`脚本（启动）`，将`start.vbs`添加进去即可
+* `Win`+`R`打开运行，输入`gpedit.msc`,选中`计算机配置`——`Winddows配置`——`脚本（启动）`，将`start.vbs`添加进去即可
 * **注意，请提前修改`start.vbs`内的`py-kms`所在目录**
 * 保险起见，我决定在用户配置中也添加一个`start.vbs`，作为备份，步骤和上面相同
 ## 测试
